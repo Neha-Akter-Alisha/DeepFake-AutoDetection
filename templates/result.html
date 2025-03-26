@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepFake Detection Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Original Image</h2>
+        <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="Uploaded Image" width="300">
+
+        <h2>Fake Region Highlighted</h2>
+        <img src="{{ url_for('static', filename='processed/' + processed_image) }}" alt="Processed Image" width="300">
+
+        <h3>Detection Result: {{ result }}</h3>
+        <p>DeepFake Probability: {{ probability|round(2) }}%</p>
+
+        <br><br>
+        <a href="/"><button class="btn-secondary">Upload Another Image</button></a>
+    </div>
+</body>
+</html>
